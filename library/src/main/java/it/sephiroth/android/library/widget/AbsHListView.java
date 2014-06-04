@@ -606,11 +606,6 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 		super( context );
 		initAbsListView();
 		mOwnerThread = Thread.currentThread();
-
-		setHorizontalScrollBarEnabled(true);
-		TypedArray a = context.obtainStyledAttributes(R.styleable.View);
-		initializeScrollbars(a);
-		a.recycle();
 	}
 
 	public AbsHListView( Context context, AttributeSet attrs ) {
