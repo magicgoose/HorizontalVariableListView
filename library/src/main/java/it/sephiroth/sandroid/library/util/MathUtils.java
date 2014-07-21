@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.util;
+package it.sephiroth.sandroid.library.util;
 
 import java.util.Random;
 

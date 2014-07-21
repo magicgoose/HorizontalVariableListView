@@ -1,10 +1,10 @@
-package it.sephiroth.android.library.util;
+package it.sephiroth.sandroid.library.util;
 
 import android.util.Log;
 import android.view.View;
 
-import it.sephiroth.android.library.util.v14.ViewHelper14;
-import it.sephiroth.android.library.util.v16.ViewHelper16;
+import it.sephiroth.sandroid.library.util.v14.ViewHelper14;
+import it.sephiroth.sandroid.library.util.v16.ViewHelper16;
 
 public class ViewHelperFactory {
 

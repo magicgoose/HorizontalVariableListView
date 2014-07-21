@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
 import java.util.ArrayList;
 import android.annotation.TargetApi;
@@ -50,7 +50,7 @@ import android.widget.ListView;
 import android.widget.RemoteViews.RemoteView;
 import android.widget.WrapperListAdapter;
 
-import it.sephiroth.android.library.R;
+import it.sephiroth.sandroid.library.R;
 
 /*
  * Implementation Notes:
@@ -2775,7 +2775,7 @@ public class HListView extends AbsHListView {
 		private int mAmountToScroll;
 
 		/**
-		 * How {@link it.sephiroth.android.library.widget.HListView#arrowScrollFocused} returns its values.
+		 * How {@link it.sephiroth.sandroid.library.widget.HListView#arrowScrollFocused} returns its values.
 		 */
 		void populate( int selectedPosition, int amountToScroll ) {
 			mSelectedPosition = selectedPosition;

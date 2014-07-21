@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="it.sephiroth.android.sample.horizontalvariablelistviewdemo"
+	package="it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo"
 	android:versionCode="1"
 	android:versionName="1.0">
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -24,7 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import it.sephiroth.android.library.R;
+import it.sephiroth.sandroid.library.R;
 
 /**
  * This class performs the graphical effect used at the edges of scrollable widgets

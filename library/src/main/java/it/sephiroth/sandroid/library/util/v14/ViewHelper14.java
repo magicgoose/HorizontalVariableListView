@@ -1,10 +1,10 @@
-package it.sephiroth.android.library.util.v14;
+package it.sephiroth.sandroid.library.util.v14;
 
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
 
-import it.sephiroth.android.library.util.ViewHelperFactory.ViewHelperDefault;
+import it.sephiroth.sandroid.library.util.ViewHelperFactory.ViewHelperDefault;
 
 public class ViewHelper14 extends ViewHelperDefault {
 

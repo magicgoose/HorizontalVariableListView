@@ -1,4 +1,4 @@
-package it.sephiroth.android.library.util.v11;
+package it.sephiroth.sandroid.library.util.v11;
 
 import android.annotation.TargetApi;
 import android.view.ActionMode;

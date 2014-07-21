@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
 import android.database.DataSetObserver;
 import android.os.Parcel;

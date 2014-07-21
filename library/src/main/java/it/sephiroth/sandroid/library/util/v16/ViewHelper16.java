@@ -1,6 +1,6 @@
-package it.sephiroth.android.library.util.v16;
+package it.sephiroth.sandroid.library.util.v16;
 
-import it.sephiroth.android.library.util.v14.ViewHelper14;
+import it.sephiroth.sandroid.library.util.v14.ViewHelper14;
 
 import android.annotation.TargetApi;
 import android.os.Build;

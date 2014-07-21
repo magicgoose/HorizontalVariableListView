@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -38,11 +38,11 @@ import android.widget.ListAdapter;
 
 import java.util.ArrayList;
 
-import it.sephiroth.android.library.R;
+import it.sephiroth.sandroid.library.R;
 
 /**
  * A view that shows items in a vertically scrolling two-level list. This
- * differs from the {@link it.sephiroth.android.library.widget.HListView} by allowing two levels: groups which can
+ * differs from the {@link it.sephiroth.sandroid.library.widget.HListView} by allowing two levels: groups which can
  * individually be expanded to show its children. The items come from the
  * {@link android.widget.ExpandableListAdapter} associated with this view.
  * <p/>

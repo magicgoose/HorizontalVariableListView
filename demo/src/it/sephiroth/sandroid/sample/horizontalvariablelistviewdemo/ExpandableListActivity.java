@@ -1,4 +1,4 @@
-package it.sephiroth.android.sample.horizontalvariablelistviewdemo;
+package it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import it.sephiroth.android.library.widget.ExpandableHListView;
+import it.sephiroth.sandroid.library.widget.ExpandableHListView;
 
 public class ExpandableListActivity extends Activity
 		implements ExpandableHListView.OnGroupExpandListener, ExpandableHListView.OnGroupCollapseListener, ExpandableHListView.OnGroupClickListener, View.OnClickListener {

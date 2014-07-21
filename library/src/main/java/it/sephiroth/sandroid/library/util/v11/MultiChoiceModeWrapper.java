@@ -1,6 +1,6 @@
-package it.sephiroth.android.library.util.v11;
+package it.sephiroth.sandroid.library.util.v11;
 
-import it.sephiroth.android.library.widget.AbsHListView;
+import it.sephiroth.sandroid.library.widget.AbsHListView;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.ActionMode;

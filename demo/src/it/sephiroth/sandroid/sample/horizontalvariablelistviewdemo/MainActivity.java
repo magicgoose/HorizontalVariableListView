@@ -1,4 +1,4 @@
-package it.sephiroth.android.sample.horizontalvariablelistviewdemo;
+package it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo;
 
 import android.app.ListActivity;
 import android.content.Intent;

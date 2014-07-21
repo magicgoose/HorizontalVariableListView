@@ -1,9 +1,9 @@
-package it.sephiroth.android.sample.horizontalvariablelistviewdemo;
+package it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo;
 
-import it.sephiroth.android.library.util.v11.MultiChoiceModeListener;
-import it.sephiroth.android.library.widget.AdapterView;
-import it.sephiroth.android.library.widget.AdapterView.OnItemClickListener;
-import it.sephiroth.android.library.widget.HListView;
+import it.sephiroth.sandroid.library.util.v11.MultiChoiceModeListener;
+import it.sephiroth.sandroid.library.widget.AdapterView;
+import it.sephiroth.sandroid.library.widget.AdapterView.OnItemClickListener;
+import it.sephiroth.sandroid.library.widget.HListView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

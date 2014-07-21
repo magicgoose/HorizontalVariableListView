@@ -1,4 +1,4 @@
-package it.sephiroth.android.sample.horizontalvariablelistviewdemo;
+package it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo;
 
 import java.util.HashMap;
 import java.util.List;

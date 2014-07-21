@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
-import it.sephiroth.android.library.widget.HListView.FixedViewInfo;
+import it.sephiroth.sandroid.library.widget.HListView.FixedViewInfo;
 import java.util.ArrayList;
 import android.database.DataSetObserver;
 import android.view.View;

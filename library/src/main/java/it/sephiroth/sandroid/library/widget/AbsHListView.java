@@ -1,4 +1,4 @@
-package it.sephiroth.android.library.widget;
+package it.sephiroth.sandroid.library.widget;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -49,11 +49,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.sephiroth.android.library.R;
-import it.sephiroth.android.library.util.ViewHelperFactory;
-import it.sephiroth.android.library.util.ViewHelperFactory.ViewHelper;
-import it.sephiroth.android.library.util.v11.MultiChoiceModeListener;
-import it.sephiroth.android.library.util.v11.MultiChoiceModeWrapper;
+import it.sephiroth.sandroid.library.R;
+import it.sephiroth.sandroid.library.util.ViewHelperFactory;
+import it.sephiroth.sandroid.library.util.ViewHelperFactory.ViewHelper;
+import it.sephiroth.sandroid.library.util.v11.MultiChoiceModeListener;
+import it.sephiroth.sandroid.library.util.v11.MultiChoiceModeWrapper;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public abstract class AbsHListView extends AdapterView<ListAdapter> implements ViewTreeObserver.OnGlobalLayoutListener,
@@ -3650,7 +3650,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	}
 
 	/**
-	 * Fires an "on scroll state changed" event to the registered {@link it.sephiroth.android.library.widget.AbsHListView.OnScrollListener}, if any.
+	 * Fires an "on scroll state changed" event to the registered {@link it.sephiroth.sandroid.library.widget.AbsHListView.OnScrollListener}, if any.
 	 * The state change is fired only if the specified state is different from the previously known state.
 	 * 
 	 * @param newState
@@ -3675,7 +3675,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 		/**
 		 * Tracks the decay of a fling scroll
 		 */
-		private final it.sephiroth.android.library.widget.OverScroller mScroller;
+		private final it.sephiroth.sandroid.library.widget.OverScroller mScroller;
 
 		/**
 		 * Y value reported by mScroller on the previous fling
@@ -5349,8 +5349,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	 * @param listener
 	 *           The recycler listener to be notified of views set aside in the recycler.
 	 * 
-	 * @see it.sephiroth.android.library.widget.AbsHListView.RecycleBin
-	 * @see it.sephiroth.android.library.widget.AbsHListView.RecyclerListener
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView.RecycleBin
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView.RecyclerListener
 	 */
 	public void setRecyclerListener( RecyclerListener listener ) {
 		mRecycler.mRecyclerListener = listener;
@@ -5431,8 +5431,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	 * A RecyclerListener is used to receive a notification whenever a View is placed inside the RecycleBin's scrap heap. This
 	 * listener is used to free resources associated to Views placed in the RecycleBin.
 	 * 
-	 * @see it.sephiroth.android.library.widget.AbsHListView.RecycleBin
-	 * @see it.sephiroth.android.library.widget.AbsHListView#setRecyclerListener(it.sephiroth.android.library.widget.AbsHListView.RecyclerListener)
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView.RecycleBin
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView#setRecyclerListener(it.sephiroth.sandroid.library.widget.AbsHListView.RecyclerListener)
 	 */
 	public static interface RecyclerListener {
 
@@ -5451,8 +5451,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	 * current information. At the end of layout, all views in ActiveViews are demoted to ScrapViews. ScrapViews are old views that
 	 * could potentially be used by the adapter to avoid allocating views unnecessarily.
 	 * 
-	 * @see it.sephiroth.android.library.widget.AbsHListView#setRecyclerListener(it.sephiroth.android.library.widget.AbsHListView.RecyclerListener)
-	 * @see it.sephiroth.android.library.widget.AbsHListView.RecyclerListener
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView#setRecyclerListener(it.sephiroth.sandroid.library.widget.AbsHListView.RecyclerListener)
+	 * @see it.sephiroth.sandroid.library.widget.AbsHListView.RecyclerListener
 	 */
 	public class RecycleBin {
 
