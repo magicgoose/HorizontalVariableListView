@@ -14,14 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.util.LongSparseArray;
-import android.support.v4.util.SparseArrayCompat;
-import android.support.v4.view.AccessibilityDelegateCompat;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.util.TypedValue;
+import android.util.*;
 import android.view.ActionMode;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.HapticFeedbackConstants;
@@ -185,7 +178,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	/**
 	 * Running state of which positions are currently checked
 	 */
-	protected SparseArrayCompat<Boolean> mCheckStates;
+	protected SparseArray<Boolean> mCheckStates;
 
 	/**
 	 * Running state of which IDs are currently checked. If there is a value for a given key, the checked state for that ID is true
@@ -793,7 +786,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	 * @return A SparseBooleanArray which will return true for each call to get(int position) where position is a position in the
 	 *         list, or <code>null</code> if the choice mode is set to {@link #CHOICE_MODE_NONE}.
 	 */
-	public SparseArrayCompat<Boolean> getCheckedItemPositions() {
+	public SparseArray<Boolean> getCheckedItemPositions() {
 		if ( mChoiceMode != ListView.CHOICE_MODE_NONE ) {
 			return mCheckStates;
 		}
@@ -1028,7 +1021,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
 		if ( mChoiceMode != ListView.CHOICE_MODE_NONE ) {
 			if ( mCheckStates == null ) {
-				mCheckStates = new SparseArrayCompat<Boolean>();
+				mCheckStates = new SparseArray<Boolean>();
 			}
 			if ( mCheckedIdStates == null && mAdapter != null && mAdapter.hasStableIds() ) {
 				mCheckedIdStates = new LongSparseArray<Integer>();
@@ -1139,7 +1132,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 		// Since this class calls onScrollChanged even if the mFirstPosition and the
 		// child count have not changed we will avoid sending duplicate accessibility
 		// events.
-		if ( eventType == AccessibilityEventCompat.TYPE_VIEW_SCROLLED ) {
+		if ( eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED ) {
 			final int firstVisiblePosition = getFirstVisiblePosition();
 			final int lastVisiblePosition = getLastVisiblePosition();
 			if ( mLastAccessibilityScrollEventFromIndex == firstVisiblePosition
@@ -1169,10 +1162,10 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 		info.setClassName( AbsHListView.class.getName() );
 		if ( isEnabled() ) {
 			if ( getFirstVisiblePosition() > 0 ) {
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD );
+				info.addAction( AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD );
 			}
 			if ( getLastVisiblePosition() < getCount() - 1 ) {
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD );
+				info.addAction( AccessibilityNodeInfo.ACTION_SCROLL_FORWARD );
 			}
 		}
 	}
@@ -1184,7 +1177,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			return true;
 		}
 		switch ( action ) {
-			case AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD: {
+			case AccessibilityNodeInfo.ACTION_SCROLL_FORWARD: {
 				if ( isEnabled() && getLastVisiblePosition() < getCount() - 1 ) {
 					final int viewportWidth = getWidth() - mListPadding.left - mListPadding.right;
 					smoothScrollBy( viewportWidth, PositionScroller.SCROLL_DURATION );
@@ -1192,7 +1185,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 				}
 			}
 				return false;
-			case AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD: {
+			case AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD: {
 				if ( isEnabled() && mFirstPosition > 0 ) {
 					final int viewportWidth = getWidth() - mListPadding.left - mListPadding.right;
 					smoothScrollBy( -viewportWidth, PositionScroller.SCROLL_DURATION );
@@ -1296,7 +1289,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 		String filter;
 		boolean inActionMode;
 		int checkedItemCount;
-		SparseArrayCompat<Boolean> checkState;
+		SparseArray<Boolean> checkState;
 		LongSparseArray<Integer> checkIdState;
 
 		/**
@@ -1336,7 +1329,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			return array;
 		}
 
-		private SparseArrayCompat<Boolean> readSparseBooleanArray( Parcel in ) {
+		private SparseArray<Boolean> readSparseBooleanArray( Parcel in ) {
 			if( LOG_ENABLED ) {
 				Log.i( TAG, "readSparseBooleanArray" );
 			}
@@ -1344,7 +1337,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			if ( N < 0 ) {
 				return null;
 			}
-			SparseArrayCompat<Boolean> sa = new SparseArrayCompat<Boolean>( N );
+			SparseArray<Boolean> sa = new SparseArray<Boolean>( N );
 			readSparseBooleanArrayInternal( sa, in, N );
 			return sa;
 		}
@@ -1361,7 +1354,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			}
 		}
 
-		private void readSparseBooleanArrayInternal( SparseArrayCompat<Boolean> outVal, Parcel in, int N ) {
+		private void readSparseBooleanArrayInternal( SparseArray<Boolean> outVal, Parcel in, int N ) {
 			while ( N > 0 ) {
 				int key = in.readInt();
 				boolean value = in.readByte() == 1;
@@ -1385,7 +1378,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			}
 		}
 
-		private void writeSparseBooleanArray( SparseArrayCompat<Boolean> val, Parcel out ) {
+		private void writeSparseBooleanArray( SparseArray<Boolean> val, Parcel out ) {
 			if( LOG_ENABLED ) {
 				Log.i( TAG, "writeSparseBooleanArray" );
 			}
@@ -1529,7 +1522,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 				ss.checkState = mCheckStates.clone();
 			} catch( NoSuchMethodError e ) {
 				e.printStackTrace();
-				ss.checkState = new SparseArrayCompat<Boolean>();
+				ss.checkState = new SparseArray<Boolean>();
 			}
 		}
 		if ( mCheckedIdStates != null ) {
@@ -1989,10 +1982,10 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 	}
 
 	@TargetApi(14)
-	class ListItemAccessibilityDelegate extends AccessibilityDelegateCompat {
+	class ListItemAccessibilityDelegate extends AccessibilityDelegate {
 
 		@Override
-		public void onInitializeAccessibilityNodeInfo( View host, AccessibilityNodeInfoCompat info ) {
+		public void onInitializeAccessibilityNodeInfo( View host, AccessibilityNodeInfo info ) {
 			super.onInitializeAccessibilityNodeInfo( host, info );
 
 			final int position = getPositionForView( host );
@@ -2008,18 +2001,18 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
 			if ( position == getSelectedItemPosition() ) {
 				info.setSelected( true );
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_CLEAR_SELECTION );
+				info.addAction( AccessibilityNodeInfo.ACTION_CLEAR_SELECTION );
 			} else {
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_SELECT );
+				info.addAction( AccessibilityNodeInfo.ACTION_SELECT );
 			}
 
 			if ( isClickable() ) {
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_CLICK );
+				info.addAction( AccessibilityNodeInfo.ACTION_CLICK );
 				info.setClickable( true );
 			}
 
 			if ( isLongClickable() ) {
-				info.addAction( AccessibilityNodeInfoCompat.ACTION_LONG_CLICK );
+				info.addAction( AccessibilityNodeInfo.ACTION_LONG_CLICK );
 				info.setLongClickable( true );
 			}
 
@@ -2047,27 +2040,27 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 			final long id = getItemIdAtPosition( position );
 
 			switch ( action ) {
-				case AccessibilityNodeInfoCompat.ACTION_CLEAR_SELECTION: {
+				case AccessibilityNodeInfo.ACTION_CLEAR_SELECTION: {
 					if ( getSelectedItemPosition() == position ) {
 						setSelection( INVALID_POSITION );
 						return true;
 					}
 				}
 					return false;
-				case AccessibilityNodeInfoCompat.ACTION_SELECT: {
+				case AccessibilityNodeInfo.ACTION_SELECT: {
 					if ( getSelectedItemPosition() != position ) {
 						setSelection( position );
 						return true;
 					}
 				}
 					return false;
-				case AccessibilityNodeInfoCompat.ACTION_CLICK: {
+				case AccessibilityNodeInfo.ACTION_CLICK: {
 					if ( isClickable() ) {
 						return performItemClick( host, position, id );
 					}
 				}
 					return false;
-				case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK: {
+				case AccessibilityNodeInfo.ACTION_LONG_CLICK: {
 					if ( isLongClickable() ) {
 						return performLongPress( host, position, id );
 					}
@@ -5481,7 +5474,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
 		private ArrayList<View> mSkippedScrap;
 
-		private SparseArrayCompat<View> mTransientStateViews;
+		private SparseArray<View> mTransientStateViews;
 
 		@SuppressWarnings("unchecked")
 		public void setViewTypeCount( int viewTypeCount ) {
@@ -5664,7 +5657,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 				}
 				if ( scrapHasTransientState ) {
 					if ( mTransientStateViews == null ) {
-						mTransientStateViews = new SparseArrayCompat<View>();
+						mTransientStateViews = new SparseArray<View>();
 					}
 					scrap.onStartTemporaryDetach();
 					mTransientStateViews.put( position, scrap );
@@ -5730,7 +5723,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 						}
 						if ( scrapHasTransientState ) {
 							if ( mTransientStateViews == null ) {
-								mTransientStateViews = new SparseArrayCompat<View>();
+								mTransientStateViews = new SparseArray<View>();
 							}
 							mTransientStateViews.put( mFirstActivePosition + i, victim );
 						}

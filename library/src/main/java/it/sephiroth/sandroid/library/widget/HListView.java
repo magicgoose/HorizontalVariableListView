@@ -31,9 +31,9 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v4.util.SparseArrayCompat;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.FocusFinder;
 import android.view.KeyEvent;
 import android.view.SoundEffectConstants;
@@ -3592,7 +3592,7 @@ public class HListView extends AbsHListView {
 		// Old behavior was buggy, but would sort of work for adapters without stable IDs.
 		// Fall back to it to support legacy apps.
 		if ( mChoiceMode != ListView.CHOICE_MODE_NONE && mCheckStates != null && mAdapter != null ) {
-			final SparseArrayCompat<Boolean> states = mCheckStates;
+			final SparseArray<Boolean> states = mCheckStates;
 			final int count = states.size();
 			final long[] ids = new long[count];
 			final ListAdapter adapter = mAdapter;

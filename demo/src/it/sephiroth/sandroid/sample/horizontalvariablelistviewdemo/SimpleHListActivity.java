@@ -1,5 +1,6 @@
 package it.sephiroth.sandroid.sample.horizontalvariablelistviewdemo;
 
+import android.util.SparseArray;
 import it.sephiroth.sandroid.library.util.v11.MultiChoiceModeListener;
 import it.sephiroth.sandroid.library.widget.AdapterView;
 import it.sephiroth.sandroid.library.widget.AdapterView.OnItemClickListener;
@@ -11,7 +12,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.util.SparseArrayCompat;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -146,7 +146,7 @@ public class SimpleHListActivity extends Activity implements OnClickListener, On
 	}
 	
 	private void deleteSelectedItems() {
-		SparseArrayCompat<Boolean> checkedItems = listView.getCheckedItemPositions();
+		SparseArray<Boolean> checkedItems = listView.getCheckedItemPositions();
 		ArrayList<Integer> sorted = new ArrayList<Integer>( checkedItems.size() );
 		
 		Log.i( LOG_TAG, "deleting: " + checkedItems.size() );
